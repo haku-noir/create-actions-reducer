@@ -37,9 +37,15 @@ const XXX = getHeadUpper(name);
 
 Promise.resolve()
   .then(() => fs.readFile(`${originDir}/minimumActions.ts`, 'utf8'))
-  .then(data => fs.outputFile(`${srcDir}/actions/${xxx}Actions.ts`, data))
+  .then(data => {
+    const replacedData = data.replace(/xxx/g, xxx).replace(/XXX/g, XXX);
+    return fs.outputFile(`${srcDir}/actions/${xxx}Actions.ts`, replacedData);
+  })
   .then(() => fs.readFile(`${originDir}/minimumReducer.ts`, 'utf8'))
-  .then(data => fs.outputFile(`${srcDir}/reducers/${xxx}Reducer.ts`, data))
+  .then(data => {
+    const replacedData = data.replace(/xxx/g, xxx).replace(/XXX/g, XXX);
+    return fs.outputFile(`${srcDir}/reducers/${xxx}Reducer.ts`,replacedData);
+  })
   .catch(err => {
     console.log('Fail!');
     console.error(err)
