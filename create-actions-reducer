@@ -35,13 +35,11 @@ if(!name){
 const xxx = getHeadLower(name);
 const XXX = getHeadUpper(name);
 
-console.log(xxx + ' ' + XXX);
-
 Promise.resolve()
   .then(() => fs.readFile(`${originDir}/minimumActions.ts`, 'utf8'))
-  .then(data => fs.outputFile(`${srcDir}/actions/xxxActions.ts`, data))
+  .then(data => fs.outputFile(`${srcDir}/actions/${xxx}Actions.ts`, data))
   .then(() => fs.readFile(`${originDir}/minimumReducer.ts`, 'utf8'))
-  .then(data => fs.outputFile(`${srcDir}/reducers/xxxReducer.ts`, data))
+  .then(data => fs.outputFile(`${srcDir}/reducers/${xxx}Reducer.ts`, data))
   .catch(err => {
     console.log('Fail!');
     console.error(err)
