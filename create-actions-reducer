@@ -2,6 +2,7 @@
 'use strict'
 
 const program = require('commander');
+const fs = require('fs-extra');
 
 program
   .usage('<reducer_name>')
@@ -19,12 +20,14 @@ const getSrcDir = dir => {
   return srcDir;
 }
 
-const currentDir = process.cwd();
-let srcDir = getSrcDir(currentDir);
-console.log(srcDir);
+const srcDir = getSrcDir(process.cwd());
+const originDir = `${__dirname}/minimum`;
 
 Promise.resolve()
-  .then(() => console.log('create-actions-reducer'))
+  .then(() => fs.readFile(`${originDir}/minimumActions.ts`, 'utf8'))
+  .then(data => fs.outputFile(`${srcDir}/actions/xxxActions.ts`, data))
+  .then(() => fs.readFile(`${originDir}/minimumReducer.ts`, 'utf8'))
+  .then(data => fs.outputFile(`${srcDir}/reducers/xxxReducer.ts`, data))
   .catch(err => {
     console.log('Fail!');
     console.error(err)
