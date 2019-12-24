@@ -5,7 +5,8 @@ const program = require('commander');
 const fs = require('fs-extra');
 
 program
-  .usage('<reducer_name>')
+  .usage('<reducer_name> [options]')
+  .option('-m, --minimum', 'create minimum Actions & Reducer')
   .version(require(`${__dirname}/package.json`).version, '-v, --version')
   .parse(process.argv);
 
@@ -24,7 +25,7 @@ const getHeadLower = str => str.slice(0, 1).toLowerCase() + str.slice(1);
 const getHeadUpper = str => str.slice(0, 1).toUpperCase() + str.slice(1);
 
 const srcDir = getSrcDir(process.cwd());
-const originDir = `${__dirname}/minimum`;
+const originDir = program.minimum ? `${__dirname}/minimum` : `${__dirname}/minimum`;
 
 const name = program.args[0];
 if(!name){
@@ -44,7 +45,7 @@ Promise.resolve()
   .then(() => fs.readFile(`${originDir}/minimumReducer.ts`, 'utf8'))
   .then(data => {
     const replacedData = data.replace(/xxx/g, xxx).replace(/XXX/g, XXX);
-    return fs.outputFile(`${srcDir}/reducers/${xxx}Reducer.ts`,replacedData);
+    return fs.outputFile(`${srcDir}/reducers/${xxx}Reducer.ts`, replacedData);
   })
   .catch(err => {
     console.log('Fail!');
