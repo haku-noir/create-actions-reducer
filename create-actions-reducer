@@ -1,4 +1,16 @@
 #!/usr/bin/env node
 'use strict'
 
-console.log('create-actions-reducer');
+const program = require('commander');
+
+program
+  .usage('<reducer_name>')
+  .version(require(`${__dirname}/package.json`).version, '-v, --version')
+  .parse(process.argv);
+
+Promise.resolve()
+  .then(() => console.log('create-actions-reducer'))
+  .catch(err => {
+    console.log('Fail!');
+    console.error(err)
+  });
