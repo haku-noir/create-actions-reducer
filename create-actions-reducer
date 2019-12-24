@@ -20,8 +20,17 @@ const getSrcDir = dir => {
   return srcDir;
 }
 
+const getHeadLower = str => str.slice(0, 1).toLowerCase() + str.slice(1);
+const getHeadUpper = str => str.slice(0, 1).toUpperCase() + str.slice(1);
+
 const srcDir = getSrcDir(process.cwd());
 const originDir = `${__dirname}/minimum`;
+
+const name = program.args[0];
+const xxx = getHeadLower(name);
+const XXX = getHeadUpper(name);
+
+console.log(xxx + ' ' + XXX);
 
 Promise.resolve()
   .then(() => fs.readFile(`${originDir}/minimumActions.ts`, 'utf8'))
