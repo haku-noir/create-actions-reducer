@@ -27,6 +27,11 @@ const srcDir = getSrcDir(process.cwd());
 const originDir = `${__dirname}/minimum`;
 
 const name = program.args[0];
+if(!name){
+  console.log('<reducer_name> is required\n');
+  console.log(program.help());
+  process.exit();
+}
 const xxx = getHeadLower(name);
 const XXX = getHeadUpper(name);
 
