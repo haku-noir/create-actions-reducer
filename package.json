@@ -1,8 +1,10 @@
 {
   "name": "create-actions-reducer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create Redux-Actions&Reducer",
-  "main": "index.js",
+  "bin": {
+    "create-actions-reducer": "create-actions-reducer"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
