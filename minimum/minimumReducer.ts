@@ -1,6 +1,6 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-export interface XXXState {}
+export type XXXState = {};
 
 const initialState: XXXState = {};
 

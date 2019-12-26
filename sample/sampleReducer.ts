@@ -1,9 +1,9 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { xxxActions } from 'actions/xxxActions';
 
-export interface XXXState {
-  sample: any;
-}
+export type XXXState = {
+  sample: any
+};
 
 const initialState: XXXState = {
   sample: Object,
