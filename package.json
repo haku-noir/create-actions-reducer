@@ -1,9 +1,9 @@
 {
   "name": "create-actions-reducer",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Create Redux-Actions&Reducer",
   "bin": {
-    "create-actions-reducer": "create-actions-reducer"
+    "create-actions-reducer": "bin/main"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
