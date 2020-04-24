@@ -18,8 +18,7 @@ module.exports = (name, minimum) => {
   const srcDir = getSrcDir(process.cwd());
 
   if(!name){
-    console.log('<reducer_name> is required\n');
-    console.log(help());
+    console.log('<reducer_name> is required');
     process.exit();
   }
   const xxx = getHeadLower(name);
