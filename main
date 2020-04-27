@@ -6,7 +6,8 @@ const program = require('commander');
 program
   .name('create-actions-reducer')
   .usage('<reducer_name> [options]')
-  .option('-m, --minimum', 'create minimum app')
+  .description('create a Redux reducer & a Redux actions')
+  .option('-m, --minimum', 'without sample')
   .version(require(`${__dirname}/package.json`).version, '-v, --version')
   .parse(process.argv);
 
